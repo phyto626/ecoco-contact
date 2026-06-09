@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ECOCO Admin - Content Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for administrative clarity */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e0f0ff;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a83200;
+        }
+    </style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-surface": "#00344d",
+                "on-surface-variant": "#5c4037",
+                "primary-fixed-dim": "#ffb59e",
+                "surface-bright": "#f6faff",
+                "inverse-primary": "#ffb59e",
+                "outline-variant": "#e5beb2",
+                "primary": "#a83200",
+                "tertiary": "#735c00",
+                "secondary-fixed": "#e0e0ff",
+                "secondary": "#434cca",
+                "on-background": "#001e2f",
+                "error": "#ba1a1a",
+                "surface-container-high": "#d4ebff",
+                "surface-variant": "#c9e6ff",
+                "tertiary-container": "#cfa600",
+                "surface-container-low": "#ebf5ff",
+                "primary-container": "#d34100",
+                "error-container": "#ffdad6",
+                "secondary-fixed-dim": "#bec2ff",
+                "on-secondary": "#ffffff",
+                "surface-tint": "#ad3300",
+                "on-primary-container": "#fffbff",
+                "secondary-container": "#5d67e5",
+                "on-surface": "#001e2f",
+                "on-tertiary-container": "#4e3d00",
+                "on-secondary-container": "#fffbff",
+                "surface-container": "#e0f0ff",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed-variant": "#842500",
+                "tertiary-fixed": "#ffe086",
+                "on-secondary-fixed-variant": "#2b34b5",
+                "tertiary-fixed-dim": "#efc100",
+                "outline": "#917065",
+                "surface-container-highest": "#c9e6ff",
+                "on-primary": "#ffffff",
+                "surface": "#f6faff",
+                "background": "#f6faff",
+                "on-secondary-fixed": "#00036b",
+                "surface-dim": "#b7dfff",
+                "on-tertiary-fixed-variant": "#574500",
+                "on-error-container": "#93000a",
+                "primary-fixed": "#ffdbd0",
+                "on-tertiary-fixed": "#231a00",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                "inverse-on-surface": "#e5f2ff",
+                "on-primary-fixed": "#390b00",
+                "surface-gray": "#f0f4f8"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "lg": "24px",
+                "margin-desktop": "48px",
+                "xs": "4px",
+                "margin-mobile": "16px",
+                "xxl": "64px",
+                "sm": "8px",
+                "xl": "32px",
+                "gutter": "16px",
+                "unit": "4px",
+                "md": "16px",
+                "base": "8px",
+                "container-max": "1280px"
+        },
+        "fontFamily": {
+                "label-bold": [
+                        "Noto Sans TC"
+                ],
+                "display-lg": [
+                        "Montserrat"
+                ],
+                "headline-md": [
+                        "Montserrat"
+                ],
+                "display-lg-mobile": [
+                        "Montserrat"
+                ],
+                "label-reg": [
+                        "Noto Sans TC"
+                ],
+                "headline-sm": [
+                        "Montserrat"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "label-bold": [
+                        "14px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-reg": [
+                        "14px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full z-40 h-screen w-64 hidden md:flex flex-col border-r border-outline-variant bg-surface-container">
+<div class="p-6">
+<h2 class="font-headline-sm text-headline-sm text-primary">ECOCO Admin</h2>
+<p class="font-label-bold text-label-bold text-on-surface-variant">Management Console</p>
+</div>
+<nav class="flex-1 mt-4">
+<a class="text-on-surface-variant hover:bg-surface-variant mx-2 my-1 flex items-center p-3 rounded-xl transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant mx-2 my-1 flex items-center p-3 rounded-xl transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-bold text-label-bold">Leads</span>
+</a>
+<a class="bg-primary-container text-on-primary-container rounded-xl mx-2 my-1 flex items-center p-3" href="#">
+<span class="material-symbols-outlined mr-3 active-nav-icon" data-icon="edit_note">edit_note</span>
+<span class="font-label-bold text-label-bold">Content Editor</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary py-3 rounded-xl font-label-bold text-label-bold flex items-center justify-center gap-2 hover:opacity-90 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Entry
+            </button>
+</div>
+<div class="border-t border-outline-variant pt-4 pb-6">
+<a class="text-on-surface-variant hover:bg-surface-variant mx-2 my-1 flex items-center p-3 rounded-xl transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help">help</span>
+<span class="font-label-bold text-label-bold">Support</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant mx-2 my-1 flex items-center p-3 rounded-xl transition-all duration-150" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span class="font-label-bold text-label-bold">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-30 bg-surface/80 backdrop-blur-md px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+<div>
+<h1 class="font-headline-md text-headline-md text-on-background">Content Editor</h1>
+<p class="font-label-reg text-label-reg text-on-surface-variant uppercase tracking-wider">Frontend Management</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-full font-label-bold text-label-bold shadow-sm hover:shadow-md transition-all active:scale-95">
+                    Save Changes
+                </button>
+</div>
+</header>
+<div class="px-margin-mobile md:px-margin-desktop py-base space-y-gutter pb-24">
+<!-- Bento Grid Section: Hero & Form Settings -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Hero Section Editor (7 cols) -->
+<section class="lg:col-span-8 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="view_quilt">view_quilt</span>
+<h3 class="font-headline-sm text-headline-sm">Hero Section</h3>
+</div>
+<span class="px-3 py-1 bg-tertiary-container/30 text-on-tertiary-container rounded-full text-label-reg font-label-reg">Live Preview Available</span>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block font-label-bold text-label-bold mb-2 text-on-surface-variant">Main Title Text</label>
+<input class="w-full bg-surface-gray border-outline-variant rounded-lg focus:ring-primary focus:border-primary px-4 py-3 font-body-md transition-shadow" type="text" value="Bring ECOCO to Your Community"/>
+</div>
+<div>
+<label class="block font-label-bold text-label-bold mb-2 text-on-surface-variant">Hero Background Image</label>
+<div class="relative group cursor-pointer overflow-hidden rounded-xl border-2 border-dashed border-outline-variant hover:border-primary transition-colors h-48">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-quality photograph of a vibrant urban community space featuring integrated recycling units and lush vertical gardens. The lighting is golden hour, casting warm, professional glows across mechanical recycling infrastructure and diverse people interacting in a clean, eco-friendly environment. The aesthetic is modern, tech-forward, and environmentalist with deep greens and bright whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXVGjXyLCIl_fwRxOsGvX3ieg5mpHlRGPoJeF00UfZXe_eQpoNcHVWoeuQ8jZbOqXyNzi8ACV8xqzKAy0PkXHkzSA6VNb3PiRv4dx6GTRLDYSpHpDQy6mehOLLmw5klLbk_WA3Wj1gF-__BYoP-Y9JBiMaKKD_Cwa35dlroDJnFkIdK3N6318og5zdaYb3sFTxG718jCVCbutmJuSptW-tsFGwyAmWi1E6PvCpzbaopl1KV6HDHuxrIRT5eIogUltEWkAYPYX7TN7E"/>
+<div class="absolute inset-0 bg-ink-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="upload">upload</span>
+<span class="text-on-primary font-label-bold mt-2">Replace Hero Image</span>
+</div>
+</div>
+<p class="mt-2 text-label-reg text-on-surface-variant italic">Recommended size: 1920x1080px. Max 2MB.</p>
+</div>
+</div>
+</section>
+<!-- Consultation Form Settings (4 cols) -->
+<section class="lg:col-span-4 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="format_list_bulleted">format_list_bulleted</span>
+<h3 class="font-headline-sm text-headline-sm">Form Config</h3>
+</div>
+<div class="flex-1 space-y-4">
+<div class="flex items-center justify-between p-3 bg-surface-gray rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-bold text-on-surface">Organization Name</span>
+<span class="text-label-reg text-on-surface-variant">Required field</span>
+</div>
+<input checked="" class="text-primary focus:ring-primary rounded" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-gray rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-bold text-on-surface">Community Size</span>
+<span class="text-label-reg text-on-surface-variant">Drop-down selection</span>
+</div>
+<input checked="" class="text-primary focus:ring-primary rounded" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-gray rounded-lg opacity-60">
+<div class="flex flex-col">
+<span class="font-label-bold text-on-surface">Existing Infra</span>
+<span class="text-label-reg text-on-surface-variant">Hidden from public</span>
+</div>
+<input class="text-primary focus:ring-primary rounded" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-gray rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-bold text-on-surface">Project Timeline</span>
+<span class="text-label-reg text-on-surface-variant">Date picker</span>
+</div>
+<input checked="" class="text-primary focus:ring-primary rounded" type="checkbox"/>
+</div>
+</div>
+<button class="mt-6 w-full py-2 border border-outline-variant text-on-surface-variant rounded-lg font-label-bold hover:bg-surface-variant transition-colors">
+                        Advanced Validation
+                    </button>
+</section>
+</div>
+<!-- Case Studies Management -->
+<section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="rocket_launch">rocket_launch</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm">Case Studies</h3>
+<p class="text-label-reg text-on-surface-variant">Showcase your circular economy success stories</p>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 px-6 py-2 bg-secondary text-on-secondary rounded-full font-label-bold hover:opacity-90 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                        Add New Case
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Case Card 1 -->
+<div class="group border border-outline-variant rounded-xl overflow-hidden hover:border-primary transition-all hover:shadow-lg">
+<div class="h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A high-definition image of a sleek, modern 'Green Retail Hub' featuring a modular glass-and-steel building integrated with dense greenery and smart waste sorting terminals. The scene is bright and airy, with soft natural lighting and a high-key professional commercial photography style. Vibrant primary green accents are visible in the signage and architectural details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdT4LdJ3vdodQxkKga2UU-KjdPi4s1nBDbzzQR2ZAe6LPHdRC_hkSp71kMQs7B7T9-zqYzo8lLMkVWm9Tl1_EekZHlK0gE5Q2emNbDkseeWTGMuyRLdHZZUW9mnfOGt_98AWyXirdKiBlvaOLUJpwNT2pXif2MfCf04Rm7kyAqBNQlqnrIsGqLa7KcCmEoK8wThSmaK9iNqfOvPTkdTleD_L6zgHhIIvjeYfPtxRGWmSexKulNdxPEMuNT570epYVdWRh_vKsl4XcM"/>
+<div class="absolute top-3 right-3">
+<span class="bg-primary text-on-primary text-[10px] px-2 py-1 rounded-full font-bold uppercase">Public</span>
+</div>
+</div>
+<div class="p-4">
+<h4 class="font-headline-sm text-headline-sm mb-1">Green Retail Hub</h4>
+<p class="text-label-reg text-on-surface-variant mb-4">Circular economy logistics for urban shopping centers.</p>
+<div class="flex items-center justify-between border-t border-outline-variant pt-4">
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-container/20 rounded-lg transition-colors" title="Edit Content">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary-container/20 rounded-lg transition-colors" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-reg text-on-surface-variant">Visible</span>
+<div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Case Card 2 -->
+<div class="group border border-outline-variant rounded-xl overflow-hidden hover:border-primary transition-all hover:shadow-lg">
+<div class="h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A professional corporate office setting showcasing 'Corporate ESG Lead' initiatives. The image features a clean, high-tech boardroom with digital dashboards displaying environmental impact metrics in shades of green and orange. Soft cinematic lighting filters through large windows, highlighting recycled composite office furniture. The mood is sophisticated, results-oriented, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-kV1xD-6DFmK6nXVN8RVBaw8nSQtqxtaMPMBpIbpSOqisAOzVTsYEqkGliHXQfgBQzJeQM2_Qw9YkCDRnGQAeLB3mFSEreequEmMcgo5rnv9zsZ5Ebx33wfrC2jBqpubsJROBOg8Wn3I7DDx8iWIpFGzFM5IXdSlr7ovyGUcGn_GGna41j0WwUGSSS8-_Ytne0ugE9fUI6cnZ2LKo6L1AvR6-tddEhCRN0nu0OtQimNMqgkynEAiapRT0PfO8ln-tl_5tYr1XcnQA"/>
+<div class="absolute top-3 right-3">
+<span class="bg-primary text-on-primary text-[10px] px-2 py-1 rounded-full font-bold uppercase">Public</span>
+</div>
+</div>
+<div class="p-4">
+<h4 class="font-headline-sm text-headline-sm mb-1">Corporate ESG Lead</h4>
+<p class="text-label-reg text-on-surface-variant mb-4">Framework for Fortune 500 zero-waste office transitions.</p>
+<div class="flex items-center justify-between border-t border-outline-variant pt-4">
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-container/20 rounded-lg transition-colors" title="Edit Content">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary hover:bg-secondary-container/20 rounded-lg transition-colors" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-reg text-on-surface-variant">Visible</span>
+<div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Case Card 3 (Draft) -->
+<div class="group border border-outline-variant border-dashed rounded-xl overflow-hidden bg-surface-gray/50 hover:bg-surface-gray transition-all">
+<div class="h-40 flex flex-col items-center justify-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-4xl mb-2" data-icon="image">image</span>
+<span class="text-label-reg">No Preview Image</span>
+</div>
+<div class="p-4">
+<h4 class="font-headline-sm text-headline-sm mb-1">Industrial Symbiosis</h4>
+<p class="text-label-reg text-on-surface-variant mb-4">Closing loops in heavy manufacturing clusters.</p>
+<div class="flex items-center justify-between border-t border-outline-variant pt-4">
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-container/20 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-reg text-on-surface-variant">Draft</span>
+<div class="w-10 h-5 bg-outline-variant rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Section Editor -->
+<section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-on-background" data-icon="web_asset">web_asset</span>
+<h3 class="font-headline-sm text-headline-sm">Footer &amp; Navigation</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-4">
+<h4 class="font-label-bold text-label-bold text-primary uppercase">Footer Links</h4>
+<div class="space-y-2">
+<div class="flex items-center gap-2 p-2 bg-surface-gray rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="drag_indicator">drag_indicator</span>
+<input class="flex-1 bg-transparent border-none text-label-bold p-0 focus:ring-0" type="text" value="Privacy Policy"/>
+<button class="text-error opacity-60 hover:opacity-100"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+<div class="flex items-center gap-2 p-2 bg-surface-gray rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="drag_indicator">drag_indicator</span>
+<input class="flex-1 bg-transparent border-none text-label-bold p-0 focus:ring-0" type="text" value="Terms of Service"/>
+<button class="text-error opacity-60 hover:opacity-100"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+<button class="w-full py-2 border border-dashed border-outline-variant text-label-reg text-on-surface-variant rounded-lg hover:bg-primary-container/10">
+                                + Add Footer Link
+                            </button>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-bold text-label-bold text-primary uppercase">Copyright Information</h4>
+<textarea class="w-full bg-surface-gray border-outline-variant rounded-lg focus:ring-primary focus:border-primary px-4 py-3 font-body-md h-24">© 2024 ECOCO Circular Economy. All rights reserved.</textarea>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Anchor -->
+<footer class="w-full py-12 flex flex-col items-center justify-center gap-base px-margin-mobile md:px-margin-desktop bg-surface-dim border-t border-outline-variant mt-12">
+<h2 class="font-headline-sm text-headline-sm text-primary">ECOCO</h2>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Contact Us</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4">© 2024 ECOCO Circular Economy. All rights reserved.</p>
+</footer>
+</main>
+<script>
+        // Simple interactivity for toggles and buttons
+        document.querySelectorAll('[title]').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                // Potential tooltip logic
+            });
+        });
+
+        // Toggle visual feedback
+        const toggles = document.querySelectorAll('.w-10.h-5');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const knob = toggle.querySelector('div');
+                if (toggle.classList.contains('bg-primary')) {
+                    toggle.classList.replace('bg-primary', 'bg-outline-variant');
+                    knob.classList.replace('right-1', 'left-1');
+                } else {
+                    toggle.classList.replace('bg-outline-variant', 'bg-primary');
+                    knob.classList.replace('left-1', 'right-1');
+                }
+            });
+        });
+
+        // Save action notification
+        const saveBtn = document.querySelector('header button');
+        saveBtn.addEventListener('click', () => {
+            const originalText = saveBtn.innerText;
+            saveBtn.innerText = 'Saving...';
+            saveBtn.disabled = true;
+            setTimeout(() => {
+                saveBtn.innerText = 'Changes Saved!';
+                saveBtn.classList.replace('bg-primary', 'bg-secondary');
+                setTimeout(() => {
+                    saveBtn.innerText = originalText;
+                    saveBtn.classList.replace('bg-secondary', 'bg-primary');
+                    saveBtn.disabled = false;
+                }, 2000);
+            }, 800);
+        });
+    </script>
+</body></html>

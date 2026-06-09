@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ECOCO | Machine Rental Consultation</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@400;600;700;800&amp;family=Noto+Sans+TC:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "outline": "#917065",
+                "on-error": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-primary-container": "#fffbff",
+                "on-surface": "#001e2f",
+                "tertiary": "#735c00",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "surface-container": "#e0f0ff",
+                "secondary": "#060E9F",
+                "on-secondary-container": "#fffbff",
+                "surface-container-high": "#d4ebff",
+                "surface-bright": "#f6faff",
+                "on-tertiary": "#ffffff",
+                "surface-variant": "#c9e6ff",
+                "surface-container-low": "#ebf5ff",
+                "primary-fixed": "#ffdbd0",
+                "surface-dim": "#b7dfff",
+                "secondary-container": "#5d67e5",
+                "on-primary": "#ffffff",
+                "primary": "#FF5000",
+                "inverse-primary": "#ffb59e",
+                "inverse-on-surface": "#e5f2ff",
+                "surface-tint": "#ad3300",
+                "outline-variant": "#e5beb2",
+                "on-secondary-fixed-variant": "#2b34b5",
+                "on-tertiary-container": "#4e3d00",
+                "primary-fixed-dim": "#ffb59e",
+                "on-primary-fixed": "#390b00",
+                "inverse-surface": "#00344d",
+                "error": "#ba1a1a",
+                "surface": "#f6faff",
+                "background": "#f6faff",
+                "tertiary-container": "#cfa600",
+                "secondary-fixed": "#e0e0ff",
+                "on-background": "#001e2f",
+                "tertiary-fixed-dim": "#efc100",
+                "on-surface-variant": "#5c4037",
+                "surface-container-highest": "#c9e6ff",
+                "secondary-fixed-dim": "#bec2ff",
+                "on-primary-fixed-variant": "#842500",
+                "on-tertiary-fixed": "#231a00",
+                "tertiary-fixed": "#ffe086",
+                "on-tertiary-fixed-variant": "#574500",
+                "on-error-container": "#93000a",
+                "primary-container": "#FF5000",
+                "on-secondary-fixed": "#00036b"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "md": "16px",
+                "lg": "24px",
+                "margin-mobile": "16px",
+                "xs": "4px",
+                "unit": "4px",
+                "gutter": "16px",
+                "xl": "32px",
+                "sm": "8px",
+                "margin-desktop": "48px",
+                "xxl": "64px",
+                "container-max": "1280px"
+        },
+        "fontFamily": {
+                "label-reg": [
+                        "Noto Sans TC", "sans-serif"
+                ],
+                "body-lg": [
+                        "Noto Sans TC", "sans-serif"
+                ],
+                "headline-sm": [
+                        "Futura", "Montserrat", "sans-serif"
+                ],
+                "headline-md": [
+                        "Futura", "Montserrat", "sans-serif"
+                ],
+                "display-lg": [
+                        "Futura", "Montserrat", "sans-serif"
+                ],
+                "body-sm": [
+                        "Noto Sans TC", "sans-serif"
+                ],
+                "body-md": [
+                        "Noto Sans TC", "sans-serif"
+                ],
+                "label-bold": [
+                        "Noto Sans TC", "sans-serif"
+                ],
+                "display-lg-mobile": [
+                        "Futura", "Montserrat", "sans-serif"
+                ]
+        },
+        "fontSize": {
+                "label-reg": [
+                        "14px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-bold": [
+                        "14px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .form-shadow {
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.04);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-[#060E9F] shadow-md docked full-width top-0 sticky z-50">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-display-lg-mobile md:font-display-lg text-white font-bold tracking-tight">ECOCO</span>
+</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-white border-b-2 border-white pb-1 font-label-md text-label-md" href="#">Consultation</a>
+<a class="text-white hover:text-white/80 transition-colors duration-200 font-label-md text-label-md" href="#">Cases</a>
+<a class="text-white hover:text-white/80 transition-colors duration-200 font-label-md text-label-md" href="#">About</a>
+<a class="text-white hover:text-white/80 transition-colors duration-200 font-label-md text-label-md" href="#">Dashboard</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex gap-2 text-white">
+<button class="p-2 rounded-full hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<button class="bg-[#FF5000] text-white px-6 py-2 rounded-full font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+                    Sign In
+                </button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center pt-24 pb-12 px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="max-w-container-max mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+<div class="space-y-6">
+<span class="inline-block px-4 py-1.5 rounded-full bg-[#FF5000]/10 text-[#FF5000] font-label-md text-label-md border border-[#FF5000]/20">
+                        Circular Economy Solution
+                    </span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background max-w-xl">
+                        Bring ECOCO to Your Community
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Transform your space into a sustainable hub. Rent our state-of-the-art circular economy machines and reward your community for every bottle recycled.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="bg-[#FF5000] text-white px-8 py-4 rounded-xl font-headline-sm text-headline-sm uppercase tracking-wide hover:brightness-110 shadow-lg transition-all active:scale-95" href="#inquiry">
+                            Get Started
+                        </a>
+<button class="flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-[#060E9F] text-[#060E9F] font-headline-sm text-headline-sm uppercase tracking-wide hover:bg-[#060E9F]/5 transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+                            View Demo
+                        </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-[#FF5000]/10 rounded-[2rem] blur-3xl group-hover:bg-[#FF5000]/20 transition-all duration-700"></div>
+<div class="relative rounded-3xl overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
+<img alt="ECOCO Smart Recycling Machine" class="w-full h-full object-cover aspect-[4/5] md:aspect-auto" data-alt="A sleek, futuristic ECOCO recycling machine standing prominently in a bright, modern glass-walled lobby. The machine features a vibrant green and white exterior with a digital interface glowing softly. Warm morning sunlight streams through the windows, illuminating the clean architectural lines of the building and the high-tech mechanical components of the recycling unit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMQkp0X_r0wWnXwf6p6FuSBlY_M0-59dELypwjC-DoBt_QzdpIrYF1RMFpI5nFObCcBFc1Zi15giNMcKGHgA1ic7MAXsQ4tqAz4iHxM_Z8nZd_iHqb3mx2DX9hQBt6C3dcWgttEbGep_Hh1QE_LlR4rJU_lh24X-c0OAMKQHY2m2tF67x6EBEP3W27AlYOxb0IvVkKgwPE2RBsvn9s907sKGGpEbvg7cIVYrTpD08fJLLgBouq877c3DrEqlY0N5PrvURUCUfslrma"/>
+</div>
+<!-- Stats Overlay -->
+<div class="absolute -bottom-6 -left-6 glass-effect p-6 rounded-2xl shadow-xl max-w-[200px] border border-white/50">
+<p class="text-[#FF5000] font-display-lg text-display-lg-mobile leading-none">98%</p>
+<p class="text-on-surface-variant font-label-md text-label-md mt-1">Satisfaction rate from our local community partners.</p>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute top-1/4 right-0 w-96 h-96 bg-[#FF5000]/5 rounded-full blur-[100px] -z-10"></div>
+<div class="absolute bottom-1/4 left-0 w-64 h-64 bg-[#060E9F]/5 rounded-full blur-[80px] -z-10"></div>
+</section>
+<!-- Success Stories Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-4">Driving Change Together</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                        See how ECOCO machines are creating value for retailers, corporations, and community leaders across the globe.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Case 1 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all duration-300 group">
+<div class="h-64 overflow-hidden relative">
+<img alt="Retail Partnership" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A stylish urban lifestyle boutique shop exterior during the day with an ECOCO recycling machine integrated into the storefront. People are interacting with the machine with a sense of joy and community. The scene is shot with a professional architectural photography style, featuring clean lines, natural greenery, and a warm, inviting atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ8P896QyGg-aStlwklgN3uAjWhF7J1t1JJ24iSC-7MqLmSA5PEHzB4Y6IJZTdlElT02K57eEmZ7OeGd13RkaOHX_XEEjjhUgzTYo2Po_Ji5rVr8Ele7BWhrAQ7PHDB9JrS5YTVjSVsEMsxOgxgqVtVT6cBExxX53tcTH7XI1LeMQOdBt70EONTBgy4KzcAdKRzr5IwINXBJhv9-7sOigY8-0RNUJDG3cwYN3y_iOlnco-moJ3c0nkvrUUWMWpNTgQcv5T_ApAf3q_"/>
+<div class="absolute top-4 left-4">
+<span class="bg-[#FF5000] px-3 py-1 rounded-full text-white font-label-sm text-label-sm">Retail Shop</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Green Retail Hub</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Integrated recycling units that increased foot traffic by 15% and boosted customer loyalty through reward points.
+                            </p>
+<button class="text-[#FF5000] font-label-md text-label-md flex items-center gap-2 group/btn">
+                                Read Full Story <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Case 2 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all duration-300 group">
+<div class="h-64 overflow-hidden relative">
+<img alt="Corporate Office" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A bright, modern corporate office breakroom with a minimalist design and sustainable materials. An ECOCO machine is placed in a dedicated recycling zone with wooden accents and indoor plants. The lighting is soft and airy, creating a professional and health-conscious workplace environment focused on corporate social responsibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8oLJBsSTRNDJjaA-zb5I6Ih0wvvxHRo9-FpCeyBZmfjz4UU0aFiJQOQlqPVJv0fz7kKnuY_QwvUf53T36Uiof7XQ0qrLl6wZwefQrBFtu_WwddV1E3rdVY0xPFVoQhPq7bqFxyUp5XfxsFdtG4udcUsGaX5BSs5Ln0sLVOkd__gGirAShFkotOobqCFL2vuZmAFVGPjJtAsQZQoCRaaEbdlE7mxGLsqRs-gmQQKZfm3YRNvjwyyDrN9eywK3cZ7mCDIbyYmx6r3e2"/>
+<div class="absolute top-4 left-4">
+<span class="bg-[#FF5000] px-3 py-1 rounded-full text-white font-label-sm text-label-sm">Fortune 500</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Corporate ESG Lead</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Successfully reduced corporate plastic waste by 4 tons per year while engaging employees in daily sustainability.
+                            </p>
+<button class="text-[#FF5000] font-label-md text-label-md flex items-center gap-2 group/btn">
+                                Read Full Story <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Case 3 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant hover:shadow-xl transition-all duration-300 group">
+<div class="h-64 overflow-hidden relative">
+<img alt="Community Projects" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A vibrant outdoor community center plaza with people of all ages gathering around a collection of ECOCO machines. The setting is a sunny park with lush green grass and modern benches. The photography is candid and high-energy, capturing the collaborative spirit and the positive impact on the local urban environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3K-pktjiab5hafWPrkaKIBUbALe0ouWnKYYWVzWtX6eVUufvAhcCtx9l2JpRAOVG32KRNC9FKYAnysVsbGW5Sr7dKWT8dSVbcDTgK_ef2Na8pHKF0EHKsNUFm-HWrDArKnNxnkU3JA4RedxEmWgH3-jFsX3P-zU25NR7rU0SlrT3OhZA8J5VYjQ7jXb77jUNMs-e_Xp-Yq6qjnW6vyyxf8wuGa7IPWlHNW51ZHSWBSrxpaDxoVhWtGfbNXV0j9YQb-U1XJ-Q7979N"/>
+<div class="absolute top-4 left-4">
+<span class="bg-[#FF5000] px-3 py-1 rounded-full text-white font-label-sm text-label-sm">Urban Planning</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-background mb-3">Community Hubs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Deployment of 20 units across city parks, creating a decentralized network for high-efficiency plastic recovery.
+                            </p>
+<button class="text-[#FF5000] font-label-md text-label-md flex items-center gap-2 group/btn">
+                                Read Full Story <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Inquiry Form Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop" id="inquiry">
+<div class="max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest rounded-[2rem] p-8 md:p-12 form-shadow border border-outline-variant relative overflow-hidden">
+<!-- Accent background -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#FF5000]/5 rounded-bl-[100px] -z-0"></div>
+<div class="relative z-10">
+<div class="mb-10">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-2">Rental Consultation</h2>
+<p class="text-on-surface-variant font-body-lg">Complete the form below and our eco-consultant will reach out within 24 hours.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Unit Name</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-[#FF5000] focus:ring-3 focus:ring-[#FF5000]/10 outline-none transition-all placeholder:text-outline/50" placeholder="Organization or Brand Name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Contact Person</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-[#FF5000] focus:ring-3 focus:ring-[#FF5000]/10 outline-none transition-all placeholder:text-outline/50" placeholder="Full Name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Phone Number</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-[#FF5000] focus:ring-3 focus:ring-[#FF5000]/10 outline-none transition-all placeholder:text-outline/50" placeholder="+886 --- --- ---" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Email Address</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-[#FF5000] focus:ring-3 focus:ring-[#FF5000]/10 outline-none transition-all placeholder:text-outline/50" placeholder="hello@company.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">County / City</label>
+<select class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-[#FF5000] focus:ring-3 focus:ring-[#FF5000]/10 outline-none transition-all appearance-none bg-no-repeat bg-[right_1rem_center] bg-[length:1em_1em]">
+<option disabled="" selected="" value="">Select Location</option>
+<option>Taipei City</option>
+<option>New Taipei City</option>
+<option>Taichung City</option>
+<option>Tainan City</option>
+<option>Kaohsiung City</option>
+<option>Others</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Site Type</label>
+<select class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-[#FF5000] focus:ring-3 focus:ring-[#FF5000]/10 outline-none transition-all">
+<option disabled="" selected="" value="">Select Site Type</option>
+<option>Retail Shop</option>
+<option>Corporate Office</option>
+<option>Residential Community</option>
+<option>Public Space</option>
+<option>Other</option>
+</select>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="font-label-md text-label-md text-on-surface">Additional Notes</label>
+<textarea class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-[#FF5000] focus:ring-3 focus:ring-[#FF5000]/10 outline-none transition-all placeholder:text-outline/50 resize-none" placeholder="Tell us more about your recycling goals..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2 pt-4">
+<button class="w-full bg-[#FF5000] text-white py-4 rounded-xl font-headline-md text-headline-md uppercase tracking-widest hover:brightness-95 active:scale-[0.98] transition-all shadow-md" type="submit">
+                                    Submit Inquiry
+                                </button>
+<p class="text-center text-label-sm text-outline mt-4">
+                                    By submitting, you agree to our <a class="underline hover:text-[#FF5000] transition-colors" href="#">Privacy Policy</a> and <a class="underline hover:text-[#FF5000] transition-colors" href="#">Data Terms</a>.
+                                </p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Material Type Chips (Secondary Visual) -->
+<section class="py-12 border-y border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-wrap justify-center gap-4">
+<div class="px-6 py-2 rounded-full bg-surface-container text-[#FF5000] font-label-md flex items-center gap-2 border border-outline-variant/50">
+<span class="w-2 h-2 rounded-full bg-[#1e90ff]"></span> Plastic (PET)
+                </div>
+<div class="px-6 py-2 rounded-full bg-surface-container text-[#FF5000] font-label-md flex items-center gap-2 border border-outline-variant/50">
+<span class="w-2 h-2 rounded-full bg-[#ffa500]"></span> Aluminum Cans
+                </div>
+<div class="px-6 py-2 rounded-full bg-surface-container text-[#FF5000] font-label-md flex items-center gap-2 border border-outline-variant/50">
+<span class="w-2 h-2 rounded-full bg-[#32cd32]"></span> Glass Bottles
+                </div>
+<div class="px-6 py-2 rounded-full bg-surface-container text-[#FF5000] font-label-md flex items-center gap-2 border border-outline-variant/50">
+<span class="w-2 h-2 rounded-full bg-[#ff4500]"></span> Battery Packs
+                </div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#060E9F] w-full py-xl border-t border-outline-variant/20">
+<div class="w-full flex flex-col md:flex-row justify-between items-center gap-md px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-md">
+<div class="font-headline-sm text-white mb-4 md:mb-0">ECOCO</div>
+<p class="text-surface-variant font-body-sm text-body-sm text-center md:text-left">
+                © 2024 ECOCO Machine Rental. All rights reserved.
+            </p>
+</div>
+<div class="flex flex-wrap justify-center md:justify-end gap-gutter items-center">
+<a class="text-surface-variant hover:text-white underline transition-all font-body-sm text-body-sm" href="#">Privacy Policy</a>
+<a class="text-surface-variant hover:text-white underline transition-all font-body-sm text-body-sm" href="#">Terms of Service</a>
+<a class="text-surface-variant hover:text-white underline transition-all font-body-sm text-body-sm" href="#">Contact Us</a>
+</div>
+<div class="flex gap-4 mt-4 md:mt-0 text-surface-variant">
+<span class="material-symbols-outlined hover:text-white transition-colors cursor-pointer">public</span>
+<span class="material-symbols-outlined hover:text-white transition-colors cursor-pointer">energy_savings_leaf</span>
+<span class="material-symbols-outlined hover:text-white transition-colors cursor-pointer">recycling</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Interaction logic
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Sending...';
+            btn.classList.add('opacity-70');
+            
+            setTimeout(() => {
+                btn.innerText = 'Success! We\'ll Contact You';
+                this.reset();
+            }, 1500);
+        });
+
+        // Sticky Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body></html>

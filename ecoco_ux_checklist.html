@@ -1,0 +1,78 @@
+
+<style>
+.cl-section { margin-bottom:20px; }
+.cl-head { display:flex; align-items:center; gap:9px; padding:9px 14px; border-radius:var(--border-radius-md); margin-bottom:8px; }
+.cl-head-title { font-size:14px; font-weight:500; color:var(--color-text-primary); }
+.cl-badge { font-size:11px; padding:2px 9px; border-radius:99px; font-weight:500; margin-left:auto; white-space:nowrap; }
+.cl-item { display:flex; gap:11px; padding:9px 14px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-tertiary); background:var(--color-background-primary); margin-bottom:6px; }
+.cl-num { font-size:12px; font-weight:500; min-width:18px; padding-top:1px; color:var(--color-text-secondary); }
+.cl-body { flex:1; }
+.cl-title { font-size:13px; font-weight:500; color:var(--color-text-primary); margin:0 0 3px; }
+.cl-desc { font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.55; }
+code { font-size:11px; background:var(--color-background-tertiary); padding:1px 5px; border-radius:4px; font-family:var(--font-mono); }
+</style>
+
+<h2 class="sr-only">ECOCO 申請設置頁面功能優化清單</h2>
+
+<div class="cl-section">
+  <div class="cl-head" style="background:#E6F1FB;border:0.5px solid #85B7EB">
+    <i class="ti ti-photo" aria-hidden="true" style="font-size:17px;color:#185FA5"></i>
+    <span class="cl-head-title">Hero 首圖</span>
+    <span class="cl-badge" style="background:#B5D4F4;color:#0C447C">1 項</span>
+  </div>
+  <div class="cl-item">
+    <span class="cl-num">1</span>
+    <div class="cl-body">
+      <p class="cl-title">換用 ECOCO 循環方舟實景照，比例設為 21:9</p>
+      <p class="cl-desc">圖片設定：<code>height: 480px</code>、<code>object-fit: cover</code>、<code>object-position: center 38%</code>，保留機台招牌與使用者互動畫面，深色漸層疊字於左側。</p>
+    </div>
+  </div>
+</div>
+
+<div class="cl-section">
+  <div class="cl-head" style="background:#FCEBEB;border:0.5px solid #F09595">
+    <i class="ti ti-clipboard-list" aria-hidden="true" style="font-size:17px;color:#A32D2D"></i>
+    <span class="cl-head-title">申請表單</span>
+    <span class="cl-badge" style="background:#F7C1C1;color:#791F1F">3 項</span>
+  </div>
+  <div class="cl-item">
+    <span class="cl-num">2</span>
+    <div class="cl-body">
+      <p class="cl-title">所有欄位加上必填 * 標記（補充說明除外）</p>
+      <p class="cl-desc">聯絡人、聯絡電話、Email、場域名稱、場域縣市、詳細地址、機型需求、預計放置位置、電源狀態、方便聯繫時段均標注 <code>*</code>，送出時需通過 inline 驗證。</p>
+    </div>
+  </div>
+  <div class="cl-item">
+    <span class="cl-num">3</span>
+    <div class="cl-body">
+      <p class="cl-title">機型需求改為多選（checkbox）</p>
+      <p class="cl-desc">從單選 <code>&lt;select&gt;</code> 改為三個 checkbox：「寶特瓶回收機」、「多品項回收機」、「大型場域方案」，允許同時勾選多項，並在每個選項下加一行簡短說明文字。</p>
+    </div>
+  </div>
+  <div class="cl-item">
+    <span class="cl-num">4</span>
+    <div class="cl-body">
+      <p class="cl-title">送出後顯示 loading 狀態與成功提示</p>
+      <p class="cl-desc">點擊送出後按鈕變為 loading 轉圈（disabled 防重複送出）；成功後顯示提示語：「已收到您的申請，ECOCO 專員會盡快聯繫您，讓我們 E 起為家園動起來！」</p>
+    </div>
+  </div>
+</div>
+
+<div class="cl-section">
+  <div class="cl-head" style="background:#FAEEDA;border:0.5px solid #FAC775">
+    <i class="ti ti-photo-check" aria-hidden="true" style="font-size:17px;color:#854F0B"></i>
+    <span class="cl-head-title">案例展示區</span>
+    <span class="cl-badge" style="background:#FAC775;color:#633806">1 項</span>
+  </div>
+  <div class="cl-item">
+    <span class="cl-num">5</span>
+    <div class="cl-body">
+      <p class="cl-title">三張案例卡片按鈕改為「我要申請」，點擊錨點跳轉至表單</p>
+      <p class="cl-desc">按鈕文字從「查看應用方式」改為「我要申請」，<code>href="#apply"</code> 跳轉至申請表單區塊，配合 <code>scroll-behavior: smooth</code> 提升流暢感。</p>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:11px 14px;font-size:12px;color:var(--color-text-secondary);line-height:1.7">
+  <span style="font-weight:500;color:var(--color-text-primary)">共 5 項優化</span>　·　Hero 換圖 1 項　·　表單修正 3 項　·　案例區 1 項
+</div>
