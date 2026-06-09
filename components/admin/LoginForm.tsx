@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LockKeyhole, Recycle } from "lucide-react";
+import { LockKeyhole, Recycle, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import "./admin.css";
@@ -14,6 +14,7 @@ export function LoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,7 +42,28 @@ export function LoginForm() {
         </div>
       </div>
       <Input label="帳號" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <Input label="密碼" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="預設 admin123，正式環境請改 .env" />
+      <div className="ui-field">
+        <span>密碼</span>
+        <div style={{ position: "relative" }}>
+          <input
+            id="password"
+            className="ui-input"
+            style={{ paddingRight: "44px" }}
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            type="button"
+            className="password-toggle-btn"
+            onClick={() => setShowPassword((p) => !p)}
+            onMouseDown={(e) => e.preventDefault()}
+            aria-label={showPassword ? "隱藏密碼" : "顯示密碼"}
+          >
+            {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
+          </button>
+        </div>
+      </div>
       {error ? <p className="field-error">{error}</p> : null}
       <Button disabled={loading} size="lg">
         <LockKeyhole size={18} />
