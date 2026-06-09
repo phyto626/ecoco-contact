@@ -347,16 +347,8 @@
     box-shadow 0.3s ease;
 }
 
-.filmstrip-card__inner.is-tilted-left {
-  transform: rotate(-1deg);
-}
-
-.filmstrip-card__inner.is-tilted-right {
-  transform: rotate(1deg);
-}
-
 .filmstrip-card:hover .filmstrip-card__inner {
-  transform: rotate(0deg) translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.02);
   box-shadow: 0 14px 38px rgba(0, 30, 47, 0.15);
 }
 
@@ -488,50 +480,49 @@
 
 .filmstrip-hint {
   display: flex;
-  flex: 0 0 80px;
+  flex: 0 0 96px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  color: rgba(92, 64, 55, 0.48);
+  gap: 10px;
+  color: rgba(92, 64, 55, 0.5);
   scroll-snap-align: start;
+  user-select: none;
 }
 
-.filmstrip-hint__bar {
-  position: relative;
-  width: 4px;
-  height: 128px;
-  overflow: hidden;
-  border-radius: var(--radius-pill);
-  background: rgba(142, 184, 201, 0.28);
+.filmstrip-hint__arrows {
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
 
-.filmstrip-hint__pulse {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 38%;
-  border-radius: inherit;
-  background: var(--color-primary);
-  animation: filmstrip-pulse 1.3s ease-in-out infinite alternate;
+.filmstrip-hint__arrow {
+  width: 10px;
+  height: 10px;
+  border-top: 2.5px solid var(--color-primary);
+  border-right: 2.5px solid var(--color-primary);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  opacity: 0;
+  animation: hint-nudge 1.6s ease-in-out infinite;
 }
+
+.filmstrip-hint__arrow:nth-child(1) { animation-delay: 0s; }
+.filmstrip-hint__arrow:nth-child(2) { animation-delay: 0.18s; }
+.filmstrip-hint__arrow:nth-child(3) { animation-delay: 0.36s; }
 
 .filmstrip-hint span {
-  writing-mode: vertical-lr;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-@keyframes filmstrip-pulse {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(80px);
-  }
+@keyframes hint-nudge {
+  0%   { opacity: 0;    transform: rotate(45deg) translateX(-4px); }
+  30%  { opacity: 1;    transform: rotate(45deg) translateX(0);    }
+  60%  { opacity: 0.3;  transform: rotate(45deg) translateX(4px);  }
+  100% { opacity: 0;    transform: rotate(45deg) translateX(4px);  }
 }
 
 .apply {

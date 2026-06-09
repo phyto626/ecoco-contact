@@ -92,7 +92,7 @@ export function CaseStudiesFilmstrip({ cases, content }: { cases: CaseStudy[]; c
 
             return (
               <article className="filmstrip-card" key={item.id}>
-                <div className={`filmstrip-card__inner ${index % 2 === 0 ? "is-tilted-left" : "is-tilted-right"}`}>
+                <div className="filmstrip-card__inner">
                   <div className="filmstrip-card__image">
                     <Image src={item.imageUrl} alt={item.title} width={720} height={520} />
                     <Badge tone={tone}>{item.category}</Badge>
@@ -125,10 +125,12 @@ export function CaseStudiesFilmstrip({ cases, content }: { cases: CaseStudy[]; c
             );
           })}
           <div className="filmstrip-hint" aria-hidden="true">
-            <div className="filmstrip-hint__bar">
-              <div className="filmstrip-hint__pulse" />
+            <div className="filmstrip-hint__arrows">
+              <div className="filmstrip-hint__arrow" />
+              <div className="filmstrip-hint__arrow" />
+              <div className="filmstrip-hint__arrow" />
             </div>
-            <span>Scroll for more</span>
+            <span>more</span>
           </div>
         </div>
       </div>
