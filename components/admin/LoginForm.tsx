@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LockKeyhole, Recycle, Eye, EyeOff } from "lucide-react";
+import { LockKeyhole, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import "./admin.css";
@@ -35,9 +35,8 @@ export function LoginForm() {
   return (
     <form className="login-card card" onSubmit={submit}>
       <div className="login-card__brand">
-        <Recycle size={34} />
+        <img src="/images/logo.png" alt="ECOCO Logo" style={{ height: "40px", width: "auto" }} />
         <div>
-          <strong>ECOCO Admin</strong>
           <span>智慧回收機申請管理</span>
         </div>
       </div>

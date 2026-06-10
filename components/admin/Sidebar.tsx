@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { FilePenLine, LayoutDashboard, ListChecks, Recycle } from "lucide-react";
+import { FilePenLine, LayoutDashboard, ListChecks } from "lucide-react";
 import "./admin.css";
 
 export function Sidebar() {
   return (
     <aside className="sidebar">
       <Link className="sidebar__brand" href="/dashboard">
-        <Recycle size={28} />
-        <span>ECOCO Admin</span>
+        <img src="/images/logo.png" alt="ECOCO Logo" style={{ height: "28px", width: "auto" }} />
       </Link>
       <nav className="sidebar__nav">
         <Link href="/dashboard">
