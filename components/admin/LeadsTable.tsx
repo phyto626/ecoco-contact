@@ -48,30 +48,14 @@ export function LeadsTable({ leads }: { leads: Lead[] }) {
     setSavingId("");
   }
 
-  function exportCsv() {
-    const header = ["ID", "時間", "聯絡人", "電話", "Email", "場域", "縣市", "狀態"];
-    const lines = filteredRows.map((lead) =>
-      [lead.id, lead.timestamp, lead.contactName, lead.phone, lead.email, lead.venueName, lead.city, lead.status]
-        .map((item) => `"${String(item).replace(/"/g, '""')}"`)
-        .join(",")
-    );
-    const blob = new Blob(["\uFEFF" + [header.join(","), ...lines].join("\n")], { type: "text/csv;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "ecoco-leads.csv";
-    link.click();
-    URL.revokeObjectURL(url);
-  }
-
   return (
     <section className="leads-panel card">
       <div className="leads-toolbar">
         <Input label="搜尋" name="q" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="姓名、場域、電話或 Email" />
         <Select label="縣市" name="city" value={city} onChange={(e) => setCity(e.target.value)} placeholder="全部縣市" options={TAIWAN_CITIES.map((item) => ({ value: item, label: item }))} />
         <Select label="進度" name="status" value={status} onChange={(e) => setStatus(e.target.value)} placeholder="全部進度" options={LEAD_STATUSES.map((item) => ({ value: item, label: item }))} />
-        <Button variant="secondary" onClick={exportCsv}>
-          匯出 CSV
+        <Button variant="secondary" onClick={() => window.open("https://docs.google.com/spreadsheets/d/1WJu0l22M_1JkM2XWAWRnAHBrUUNnBDGGDA-Ydwu_C3s/edit?gid=1547149813#gid=1547149813", "_blank")}>
+          查看完整名單
         </Button>
       </div>
       <div className="table-wrap">
