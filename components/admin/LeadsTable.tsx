@@ -55,7 +55,7 @@ export function LeadsTable({ leads }: { leads: Lead[] }) {
         .map((item) => `"${String(item).replace(/"/g, '""')}"`)
         .join(",")
     );
-    const blob = new Blob([[header.join(","), ...lines].join("\n")], { type: "text/csv;charset=utf-8" });
+    const blob = new Blob(["\uFEFF" + [header.join(","), ...lines].join("\n")], { type: "text/csv;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
