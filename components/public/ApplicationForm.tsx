@@ -226,13 +226,20 @@ export function ApplicationForm({ content }: { content: import("@/types").SiteCo
               <div style={{ display: "grid", gap: "12px", marginTop: "8px" }}>
                 {(() => {
                   const options = (content.formMachineTypeOptions ?? "智慧收瓶機,二代智慧電池機,智慧整合機(同時收瓶罐+電池)").split(",");
-                  if (!options.includes("其他")) options.push("其他");
-                  return options.map((item) => {
-                    let desc = "";
-                    if (item === "智慧收瓶機" || item === "寶特瓶回收機") desc = "適合一般社區、商辦，專收寶特瓶";
-                    else if (item === "二代智慧電池機") desc = "專收廢乾電池，體積小巧不佔位";
-                    else if (item === "智慧整合機(同時收瓶罐+電池)" || item === "多品項回收機") desc = "可收寶特瓶、鋁罐、塑膠杯等";
-                    else if (item === "大型場域方案") desc = "適合大型商場、賣場之客製化方案";
+                  const hasOther = options.some(opt => opt.split("|")[0].trim() === "其他");
+                  if (!hasOther) options.push("其他");
+                  
+                  return options.map((rawItem) => {
+                    const parts = rawItem.split("|");
+                    const item = parts[0].trim();
+                    let desc = parts.length > 1 ? parts[1].trim() : "";
+                    
+                    if (!desc) {
+                      if (item === "智慧收瓶機" || item === "寶特瓶回收機") desc = "適合一般社區、商辦，專收寶特瓶";
+                      else if (item === "二代智慧電池機") desc = "專收廢乾電池，體積小巧不佔位";
+                      else if (item === "智慧整合機(同時收瓶罐+電池)" || item === "多品項回收機") desc = "可收寶特瓶、鋁罐、塑膠杯等";
+                      else if (item === "大型場域方案") desc = "適合大型商場、賣場之客製化方案";
+                    }
                     
                     return (
                       <label key={item} style={{ display: "flex", gap: "10px", alignItems: "flex-start", cursor: "pointer" }}>

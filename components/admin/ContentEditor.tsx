@@ -155,7 +155,7 @@ export function ContentEditor({ content, cases }: { content: SiteContent; cases:
           <Badge tone="primary">首頁</Badge>
         </div>
         <Textarea label="申請單位選項，使用逗號分隔" value={draft.formApplicantTypeOptions} onChange={(e) => setDraft({ ...draft, formApplicantTypeOptions: e.target.value })} />
-        <Textarea label="機型選項，使用逗號分隔" value={draft.formMachineTypeOptions} onChange={(e) => setDraft({ ...draft, formMachineTypeOptions: e.target.value })} />
+        <Textarea label="機型選項，可使用 | 加註說明（例：機型A|說明A），以逗號分隔" value={draft.formMachineTypeOptions} onChange={(e) => setDraft({ ...draft, formMachineTypeOptions: e.target.value })} />
         <Textarea label="設置位置選項，使用逗號分隔" value={draft.formPlacementLocationOptions} onChange={(e) => setDraft({ ...draft, formPlacementLocationOptions: e.target.value })} />
         <Textarea label="電源選項，使用逗號分隔" value={draft.formPowerOutletOptions} onChange={(e) => setDraft({ ...draft, formPowerOutletOptions: e.target.value })} />
         <Textarea label="可聯繫時間，使用逗號分隔" value={draft.formAvailableTimeOptions} onChange={(e) => setDraft({ ...draft, formAvailableTimeOptions: e.target.value })} />
