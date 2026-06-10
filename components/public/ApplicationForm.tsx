@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import Image from "next/image";
 import { Send } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input, Textarea } from "@/components/ui/Input";
@@ -115,9 +116,12 @@ export function ApplicationForm({ content }: { content: import("@/types").SiteCo
           <span className="eyebrow">Application</span>
           <h2 className="section-title">{content.applyTitle ?? "申請設置 ECOCO 智慧回收機"}</h2>
           <p className="muted">{content.applySubtitle ?? "完成表單後，我們會依照場域條件與需求，由專人安排後續聯繫與評估。"}</p>
+          <div className="apply-guide-image">
+            <Image src="/images/21_亮寶抬手.png" alt="ECOCO 亮寶" width={280} height={280} />
+          </div>
         </div>
         <form className="apply-form card" onSubmit={submit}>
-          <fieldset>
+            <fieldset>
             <legend>申請單位類型 *</legend>
             <div className="chip-row">
               {(content.formApplicantTypeOptions ?? "企業,社區大樓,學校,商場零售,政府機關,其他").split(",").map((item) => (

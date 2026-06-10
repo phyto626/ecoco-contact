@@ -709,3 +709,81 @@
     flex-direction: column;
   }
 }
+
+/* --- Value Proposition --- */
+.value-proposition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.vp-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 200px;
+  gap: 12px;
+  background-color: var(--color-surface);
+  padding: 16px 24px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--color-foreground);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vp-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.vp-chip img {
+  object-fit: contain;
+}
+
+/* --- Animations --- */
+@keyframes bounce-vertical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.logo-bounce {
+  display: inline-block;
+  vertical-align: middle;
+  animation: bounce-vertical 2s ease-in-out infinite;
+  margin-right: 12px;
+}
+
+/* --- Application Layout Adjustments --- */
+.apply-guide-image {
+  margin-top: 48px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.apply-guide-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .apply-guide-image {
+    justify-content: center;
+    margin-top: 32px;
+  }
+}
+
+/* --- Footer Logo --- */
+.public-footer__logo {
+  margin-bottom: 16px;
+  display: block;
+}
+

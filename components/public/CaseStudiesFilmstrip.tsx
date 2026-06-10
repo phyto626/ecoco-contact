@@ -117,7 +117,7 @@ export function CaseStudiesFilmstrip({ cases, content }: { cases: CaseStudy[]; c
                       </div>
                     </div>
                     <a href="#apply" className="case-card__link">
-                      立即諮詢
+                      我想申請
                     </a>
                   </div>
                 </div>
@@ -131,6 +131,27 @@ export function CaseStudiesFilmstrip({ cases, content }: { cases: CaseStudy[]; c
               <div className="filmstrip-hint__arrow" />
             </div>
             <span>more</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="container" style={{ marginTop: "3rem" }}>
+        <div className="value-proposition">
+          <div className="vp-chip">
+            <Image src="/images/chip1.png" alt="智慧回收" width={48} height={48} />
+            <span>智慧回收</span>
+          </div>
+          <div className="vp-chip">
+            <Image src="/images/chip2.png" alt="循環利用" width={48} height={48} />
+            <span>循環利用</span>
+          </div>
+          <div className="vp-chip">
+            <Image src="/images/chip3.png" alt="永續家園" width={48} height={48} />
+            <span>永續家園</span>
+          </div>
+          <div className="vp-chip">
+            <Image src="/images/chip4.png" alt="有你守護" width={48} height={48} />
+            <span>有你守護</span>
           </div>
         </div>
       </div>
