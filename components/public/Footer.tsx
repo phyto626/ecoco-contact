@@ -1,4 +1,3 @@
-import { Leaf } from "lucide-react";
 import type { SiteContent } from "@/types";
 import Image from "next/image";
 import "./public.css";
@@ -13,10 +12,7 @@ export function Footer({ content }: { content: SiteContent }) {
         <div className="public-footer__links">
           <a href="#cases">案例展示</a>
           <a href="#apply">申請設置</a>
-          <span>
-            <Leaf size={16} />
-            Circular Economy
-          </span>
+          <span>©凡立橙股份有限公司</span>
         </div>
       </div>
     </footer>
