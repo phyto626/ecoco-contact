@@ -12,33 +12,21 @@ export function Hero({ content }: { content: SiteContent }) {
         alt="ECOCO 智慧回收機應用場域"
         fill
         priority
-        style={{ objectFit: "cover", objectPosition: "center 38%", zIndex: 0 }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(to right, rgba(6, 14, 159, 0.45) 0%, rgba(6, 14, 159, 0) 55%)",
-          backdropFilter: "blur(6px)",
-          WebkitBackdropFilter: "blur(6px)",
-          maskImage: "linear-gradient(to right, black 0%, black 45%, transparent 65%)",
-          WebkitMaskImage: "linear-gradient(to right, black 0%, black 45%, transparent 65%)",
-          zIndex: 1,
-        }}
+        style={{ objectFit: "cover", objectPosition: "80% 38%", zIndex: 0 }}
       />
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div className="hero__copy" style={{ maxWidth: "600px" }}>
-          <span className="eyebrow" style={{ color: "#85B7EB", borderColor: "rgba(133,183,235,0.4)", background: "rgba(133,183,235,0.15)" }}>
+          <span className="eyebrow" style={{ color: "white", borderColor: "rgba(255,255,255,0.4)", background: "rgba(0,0,0,0.25)", textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
             <Recycle size={16} />
             Circular Economy Solution
           </span>
-          <h1 className="page-title" style={{ color: "white" }}>{content.heroTitle}</h1>
-          <p style={{ color: "rgba(255, 255, 255, 0.85)" }}>{content.heroSubtitle}</p>
+          <h1 className="page-title" style={{ color: "white", textShadow: "0 2px 8px rgba(0,0,0,0.8), 0 0 16px rgba(0,0,0,0.5)" }}>{content.heroTitle}</h1>
+          <p style={{ color: "rgba(255, 255, 255, 0.95)", textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>{content.heroSubtitle}</p>
           <div className="hero__actions" style={{ marginTop: "12px" }}>
             <a href="#apply">
-              <Button size="lg">立即申請設置</Button>
+              <Button size="lg" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.4)" }}>立即申請設置</Button>
             </a>
-            <a className="hero__secondary" href="#cases" style={{ borderColor: "rgba(255,255,255,0.4)", color: "white" }}>
+            <a className="hero__secondary" href="#cases" style={{ borderColor: "rgba(255,255,255,0.6)", color: "white", textShadow: "0 1px 4px rgba(0,0,0,0.8)", background: "rgba(0,0,0,0.15)" }}>
               <PlayCircle size={22} />
               查看案例
             </a>
