@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { BarChart3, ChevronLeft, ChevronRight, Leaf, Users } from "lucide-react";
-import { useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
+import { useRef, useState, useEffect, type MouseEvent as ReactMouseEvent } from "react";
 import type { CaseStudy, SiteContent } from "@/types";
 import { Badge } from "@/components/ui/Badge";
 
@@ -20,6 +20,23 @@ export function CaseStudiesFilmstrip({ cases, content }: { cases: CaseStudy[]; c
   const filmstripRef = useRef<HTMLDivElement>(null);
   const dragState = useRef({ active: false, startX: 0, scrollLeft: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [isAtEnd, setIsAtEnd] = useState(false);
+
+  const checkScroll = () => {
+    const filmstrip = filmstripRef.current;
+    if (!filmstrip) return;
+    if (filmstrip.scrollLeft + filmstrip.clientWidth >= filmstrip.scrollWidth - 10) {
+      setIsAtEnd(true);
+    } else {
+      setIsAtEnd(false);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, [cases]);
 
   const scrollByCard = (direction: 1 | -1) => {
     const filmstrip = filmstripRef.current;
@@ -85,6 +102,7 @@ export function CaseStudiesFilmstrip({ cases, content }: { cases: CaseStudy[]; c
           onMouseLeave={stopDragging}
           onMouseUp={stopDragging}
           onMouseMove={handleMouseMove}
+          onScroll={checkScroll}
         >
           {cases.map((item, index) => {
             const MetricIcon = getMetricIcon(item.metricIcon);
@@ -116,7 +134,8 @@ export function CaseStudiesFilmstrip({ cases, content }: { cases: CaseStudy[]; c
                         {item.testimonial && <blockquote>{item.testimonial}</blockquote>}
                       </div>
                     </div>
-                    <a href="#apply" className="case-card__link">
+                    <a href="#apply" className="case-card__link" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+                      <Image src="/images/chip1.png" alt="申請圖示" width={24} height={24} style={{ objectFit: "contain" }} />
                       我想申請
                     </a>
                   </div>
@@ -124,14 +143,16 @@ export function CaseStudiesFilmstrip({ cases, content }: { cases: CaseStudy[]; c
               </article>
             );
           })}
-          <div className="filmstrip-hint" aria-hidden="true">
-            <div className="filmstrip-hint__arrows">
-              <div className="filmstrip-hint__arrow" />
-              <div className="filmstrip-hint__arrow" />
-              <div className="filmstrip-hint__arrow" />
+          {!isAtEnd && (
+            <div className="filmstrip-hint" aria-hidden="true">
+              <div className="filmstrip-hint__arrows">
+                <div className="filmstrip-hint__arrow" />
+                <div className="filmstrip-hint__arrow" />
+                <div className="filmstrip-hint__arrow" />
+              </div>
+              <span>more</span>
             </div>
-            <span>more</span>
-          </div>
+          )}
         </div>
       </div>
 
