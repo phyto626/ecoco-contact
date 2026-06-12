@@ -14,7 +14,18 @@ export function Hero({ content }: { content: SiteContent }) {
         priority
         style={{ objectFit: "cover", objectPosition: "center 38%", zIndex: 0 }}
       />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(12,68,124,0.9) 0%, rgba(12,68,124,0) 65%)", zIndex: 1 }} />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(to right, rgba(6, 14, 159, 0.45) 0%, rgba(6, 14, 159, 0) 55%)",
+          backdropFilter: "blur(6px)",
+          WebkitBackdropFilter: "blur(6px)",
+          maskImage: "linear-gradient(to right, black 0%, black 45%, transparent 65%)",
+          WebkitMaskImage: "linear-gradient(to right, black 0%, black 45%, transparent 65%)",
+          zIndex: 1,
+        }}
+      />
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div className="hero__copy" style={{ maxWidth: "600px" }}>
           <span className="eyebrow" style={{ color: "#85B7EB", borderColor: "rgba(133,183,235,0.4)", background: "rgba(133,183,235,0.15)" }}>
