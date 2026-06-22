@@ -151,7 +151,7 @@ export function ApplicationForm({ content }: { content: import("@/types").SiteCo
           <h2 className="section-title">{content.applyTitle ?? "申請設置 ECOCO 智慧回收機"}</h2>
           <p className="muted">{content.applySubtitle ?? "完成表單後，我們會依照場域條件與需求，由專人安排後續聯繫與評估。"}</p>
           <div className="apply-guide-image">
-            <Image src="/images/21_亮寶抬手.png" alt="ECOCO 亮寶" width={280} height={280} />
+            <Image src="/images/75_thanks.png" alt="ECOCO 亮寶" width={400} height={400} style={{ width: "100%", maxWidth: "360px", height: "auto" }} />
           </div>
         </div>
         <form className="apply-form card" onSubmit={submit}>

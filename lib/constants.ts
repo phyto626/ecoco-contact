@@ -32,7 +32,7 @@ export const DEFAULT_CONTENT: SiteContent = {
   heroSubtitle:
     "讓社區、商場、校園與企業空間成為循環經濟據點，透過智慧回收與回饋機制提升參與率。",
   heroImageUrl:
-    "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80",
+    "https://0cggvek50hlogaxg.public.blob.vercel-storage.com/ecoco/HERO3.jpg",
   heroStatNumber: "98%",
   heroStatLabel: "合作場域滿意度",
   casesTitle: "讓循環回收成為場域日常",
